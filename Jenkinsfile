@@ -25,9 +25,9 @@ pipeline {
             steps {
                 sh '''
                mvn sonar:sonar \
- 					 -Dsonar.projectKey=javaexpress-sonar \
- 					 -Dsonar.host.url=http://3.70.96.109:9000 \
-  					 -Dsonar.login=d2c8fec69fd0f3fdf398986c57732db42aeff861
+ 					 -Dsonar.projectKey=javaexpressproject  \
+ 					 -Dsonar.host.url=http://3.71.78.75:9000 \
+  					 -Dsonar.login=9bc131dfbf179c0fad4a02588e0fe9e882a7af32
                 '''
             }
         } 
@@ -52,8 +52,6 @@ pipeline {
         
     	stage("kubernetes deployment"){
     		steps {
-		sh 'pwd'
-		sh 'ls'
                 sh 'kubectl apply -f k8s-spring-boot-deployment.yml'
             }
     	} 
