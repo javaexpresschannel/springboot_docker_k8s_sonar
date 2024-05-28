@@ -49,13 +49,11 @@ pipeline {
                 sh 'docker push javaexpress/springboot_docker_k8s_sonar:latest'
             }
         } 
-        stage('Archving') { 
-            steps {
-                 archiveArtifacts '**/target/*.jar'
-            }
-        }
+        
     	stage("kubernetes deployment"){
     		steps {
+		sh 'pwd'
+		sh 'ls'
                 sh 'kubectl apply -f k8s-spring-boot-deployment.yml'
             }
     	} 
