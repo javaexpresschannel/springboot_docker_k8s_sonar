@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaexpress-springboot
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-pod
+  template:
+    metadata:
+      name: javaexpress-springboot
+      labels:
+        app: springboot-pod
+    spec:
+      containers:
+      - name: springboot-container
+        image: javaexpress/springboot_docker_k8s_sonar:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-svc
+spec:
+  selector:
+    app: springboot-pod
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
