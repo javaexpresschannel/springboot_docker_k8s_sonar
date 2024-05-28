@@ -54,4 +54,9 @@ public class CategoryController {
 	public Category fetchCategoryByName(@PathVariable("name")String categoryName) {
 		 return categoryService.fetchCategory(categoryName);
 	}
+	
+	@GetMapping("/hello")
+	public String getHello() {
+		return "Hello Controller";
+	}
 }
