@@ -7,7 +7,7 @@ pipeline {
     stages {
 		stage('Checkout') { 
             steps {
-                git 'https://github.com/javaexpresschannel/simple_maven_sonar.git'
+                git 'https://github.com/javaexpresschannel/springboot_docker_k8s_sonar.git'
             }
         }
         stage('Compile') { 
